@@ -11,7 +11,7 @@ import java.io.IOException;
 
 import static core.DriverFactory.getDriver;
 import static core.DriverFactory.killDriver;
-import static core.Properties.FECHAR_BOWSER;
+import static core.Properties.CLOSE_BROWSER_BETWEEN_TESTS;
 
 public class BaseTest {
 
@@ -30,7 +30,7 @@ public class BaseTest {
     // ========================= Before ==================
 
     @BeforeClass // indicates that this method needs to be executed before the class execution
-    public void doSomethingBeforeClassExecution(){
+    public static void doSomethingBeforeClassExecution(){
         // here you do things that ALL tests of the class need to run
     }
 
@@ -47,20 +47,15 @@ public class BaseTest {
 
     @After // indicates that this method needs to be executed after every @Test annotated method
     public void doSomethingAfterEveryTest() throws IOException {
-        /*
-        * here you can do some finalization code
-        * or some data mass you need to control after every test to "rollback" some stuff
-        * screenshot capture
-        */
 
         screenCapture();
-        if(FECHAR_BOWSER){
+        if(CLOSE_BROWSER_BETWEEN_TESTS){
             killDriver();
         }
     }
 
     @AfterClass // indicates that this method needs to be executed after the class execution
-    public void doSomethingAfterClassExecution(){
+    public static void doSomethingAfterClassExecution(){
         // here you do things that you need after execution of all tests of the class
     }
 
