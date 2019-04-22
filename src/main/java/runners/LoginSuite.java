@@ -8,10 +8,9 @@ import tests.LoginTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-        LoginTest.class
+        LoginTest.class,
 })
 public class LoginSuite extends BaseRunner {
-
     /*
     This is an alternative method to run your tests suits when u don't want/have the scenarios described in Cucumber Feature
      */

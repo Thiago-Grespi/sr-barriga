@@ -15,11 +15,11 @@ public class LoginPage extends BasePage {
 
     // Elements -----------------------------------------------------------
 
-    public WebElement getEmailInput(){
+    public WebElement getEmailText(){
         return driver.findElement(By.id("email"));
     }
 
-    public WebElement getPasswordInput(){
+    public WebElement getPasswordText(){
         return driver.findElement(By.id("senha"));
     }
 
@@ -42,14 +42,14 @@ public class LoginPage extends BasePage {
     // Actions --------------------------------------------------------
 
     public void setEmail(String email){
-        getEmailInput().sendKeys(email);
+        getEmailText().sendKeys(email);
     }
 
     public void setPassword(String pass){
-        getPasswordInput().sendKeys(pass);
+        getPasswordText().sendKeys(pass);
     }
 
-    public void clicklogIn(){
+    public void clickLogIn(){
         getLoginButton().click();
     }
 
@@ -58,7 +58,7 @@ public class LoginPage extends BasePage {
     public void logIn(String email, String pass){
         setEmail(email);
         setPassword(pass);
-        clicklogIn();
+        clickLogIn();
     }
 
 }
