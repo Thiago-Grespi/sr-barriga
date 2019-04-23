@@ -1,0 +1,45 @@
+{
+  "allEmpty": {
+    "tipoMovimentacao" : "",
+    "dataMovimentacao" : "",
+    "dataPagamento" : "",
+    "descricao" : "",
+    "interessado" : "",
+    "valor" : "",
+    "conta" : "",
+    "situacao" : ""
+  },
+
+  "valid": {
+    "tipoMovimentacao" : "Receita",
+    "dataMovimentacao" : "01/01/2019",
+    "dataPagamento" : "05/01/2019",
+    "descricao" : "pagamento da fatura de janeiro",
+    "interessado" : "Johnny Knoxville",
+    "valor" : "100",
+    "conta" : "Comercial",
+    "situacao" : "Pago"
+  },
+
+  "invalidDataMovimentacao": {
+    "tipoMovimentacao" : "Receita",
+    "dataMovimentacao" : "01/01/2030",
+    "dataPagamento" : "05/01/2019",
+    "descricao" : "pagamento da fatura de janeiro",
+    "interessado" : "Johnny Knoxville",
+    "valor" : "100",
+    "conta" : "Comercial",
+    "situacao" : "Pago"
+  },
+
+  "invalidValor": {
+    "tipoMovimentacao" : "Receita",
+    "dataMovimentacao" : "01/01/2019",
+    "dataPagamento" : "05/01/2019",
+    "descricao" : "pagamento da fatura de janeiro",
+    "interessado" : "Johnny Knoxville",
+    "valor" : "abc",
+    "conta" : "Comercial",
+    "situacao" : "Pago"
+  }
+}

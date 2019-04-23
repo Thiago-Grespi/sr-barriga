@@ -1,0 +1,19 @@
+{
+  "valid" : {
+    "email" : "thiago.grespi90@gmail.com",
+    "pass" : "123456"
+  },
+
+  "invalid" : {
+    "email" : "thiago.grespi90@gmail.com",
+    "pass" : "invalid_pass",
+    "errorMessageIncorrectCredentials" : "Problemas com o login do usuário"
+  },
+
+  "allEmpty" : {
+    "email" : "",
+    "pass" : "",
+    "errorMessageEmailRequired" : "Email é um campo obrigatório",
+    "errorMessageSenhaRequired" : "Senha é um campo obrigatório"
+  }
+}

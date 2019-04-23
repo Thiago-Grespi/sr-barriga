@@ -125,7 +125,15 @@ public class CriarMovimentacaoPage extends BasePage {
             String contaVisibleText,
             Situacoes situacao
             ){
-
+        setTipoMovimentacao(tipoMovimentacao);
+        setDataMovimentacao(dataMovimentacao);
+        setDataPagamento(dataPagamento);
+        setDescricao(descricao);
+        setInteressado(interessado);
+        setValor(valor);
+        setConta(contaVisibleText);
+        setSituacao(situacao);
+        clickSalvar();
     }
 
 }

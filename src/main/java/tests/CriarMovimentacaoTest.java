@@ -13,10 +13,13 @@ import static org.junit.Assert.*;
 public class CriarMovimentacaoTest {
 
     private CriarMovimentacaoPage criarMovimentacaoPage;
+    private LoginPage loginPage;
 
     @Before
     public void initialSetUp(){
         criarMovimentacaoPage = new CriarMovimentacaoPage();
+//        loginPage = new LoginPage();
+//        loginPage.logIn();
         getDriver().get(criarMovimentacaoPage.url);
         isPageReady();
     }
@@ -36,4 +39,18 @@ public class CriarMovimentacaoTest {
         assertTrue(criarMovimentacaoPage.getSituacaoPendenteRadio().isSelected());
     }
 
+//    @Test
+//    public void createMovimentacaoWithSuccess(){
+//
+//    }
+//
+//    @Test
+//    public void createMovimentacaoWithAllEmptyField(){
+//
+//    }
+//
+//    @Test
+//    public void createMovimetacaoWithOneEmptyFieldPerTry(){
+//
+//    }
 }

@@ -1,5 +1,9 @@
 package core;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.apache.commons.io.FileUtils;
 import org.junit.*;
 import org.junit.rules.TestName;
@@ -7,6 +11,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 
 import static core.DriverFactory.getDriver;
@@ -15,16 +21,15 @@ import static core.Properties.CLOSE_BROWSER_BETWEEN_TESTS;
 
 public class BaseTest {
 
-    /*
-    Here you can add some behavior that tests class will share.
-    Below, we have some methods with some punctual behavior to help and example what you can do
-    */
+
 
 
     // ========================= Properties ==================
 
     @Rule
     public TestName testName = new TestName();
+
+    JSONParser parser = new JSONParser();
 
 
     // ========================= Before ==================
@@ -65,5 +70,29 @@ public class BaseTest {
         TakesScreenshot screenShot = (TakesScreenshot) getDriver();
         File screenImage = screenShot.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(screenImage, new File("target" + File.separator + "screenshot" + File.separator + testName + ".jpg"));
+    }
+
+    protected JSONObject getJsonDataObject(String jsonFileName, String dataGroup) {
+        JSONObject jsonDataObject = null;
+        try {
+            Object obj = parser.parse(new FileReader(System.getProperty("user.dir") + File.separator + "src" +
+                    File.separator + "main" + File.separator + "java" + File.separator + "data" + File.separator + jsonFileName));
+            jsonDataObject = (JSONObject) obj;
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        assert jsonDataObject != null;
+        return (JSONObject) jsonDataObject.get(dataGroup);
+    }
+
+
+    protected String setDataFileName(String baseFileName){
+        if(System.getProperty("os.name").startsWith("Windows")){
+            baseFileName += ".json";
+        }
+        return baseFileName;
     }
 }

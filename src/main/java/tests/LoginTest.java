@@ -1,6 +1,8 @@
 package tests;
 
 import core.BaseTest;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
 import pages.HomePage;
@@ -32,6 +34,9 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginWithSuccess(){
+        String logInDataFileName = setDataFileName("LogInData");
+        JSONObject logInJsonData = getJsonDataObject(logInDataFileName, "valid");
+
         loginPage.logIn("thiago.grespi90@gmail.com", "123456");
         assertEquals("https://srbarriga.herokuapp.com/logar", homePage.getCurrentURL());
         assertTrue(homePage.getWelcomeMessageText().isDisplayed());
@@ -40,17 +45,23 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginWithEmptyFields(){
-        loginPage.logIn("","");
+        String logInDataFileName = setDataFileName("LogInData");
+        JSONObject logInJsonData = getJsonDataObject(logInDataFileName, "allEmpty");
+
+        loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
         assertTrue(loginPage.getErrorMessageEmailRequired().isDisplayed());
-        assertEquals("Email é um campo obrigatório", loginPage.getErrorMessageEmailRequired().getText());
+        assertEquals((String) logInJsonData.get("errorMessageEmailRequired"), loginPage.getErrorMessageEmailRequired().getText());
         assertTrue(loginPage.getErrorMessagePasswordRequired().isDisplayed());
-        assertEquals("Senha é um campo obrigatório", loginPage.getErrorMessagePasswordRequired().getText());
+        assertEquals((String) logInJsonData.get("errorMessageSenhaRequired"), loginPage.getErrorMessagePasswordRequired().getText());
     }
 
     @Test
     public void loginWithIncorrectCredentials(){
-        loginPage.logIn("thiago.grespi90@gmail.com","incorrect_pass");
+        String logInDataFileName = setDataFileName("LogInData");
+        JSONObject logInJsonData = getJsonDataObject(logInDataFileName, "invalid");
+
+        loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
         assertTrue(loginPage.getErrosMessageIncorrectCredentials().isDisplayed());
-        assertEquals("Problemas com o login do usuário", loginPage.getErrosMessageIncorrectCredentials().getText());
+        assertEquals((String) logInJsonData.get("errorMessageIncorrectCredentials"), loginPage.getErrosMessageIncorrectCredentials().getText());
     }
 }
