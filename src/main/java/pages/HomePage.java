@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 import static core.DriverFactory.getDriver;
 
 public class HomePage extends BasePage {
@@ -18,6 +20,14 @@ public class HomePage extends BasePage {
 
     public WebElement getWelcomeMessageText(){
         return driver.findElement(By.xpath("//*[@class='alert alert-success']"));
+    }
+
+    public WebElement getSuccesMessageContaAdicionada(){
+        return driver.findElement(By.xpath("//div[@class='alert alert-success']"));
+    }
+
+    public List<WebElement> getContasList(){
+        return driver.findElements(By.xpath("//*[@id=\"tabelaContas\"]/tbody"));
     }
 
 }

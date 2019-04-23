@@ -15,4 +15,6 @@ public class Properties {
         FIREFOX
     }
 
+    public static String baseUrl = "https://srbarriga.herokuapp.com/" ;
+
 }
