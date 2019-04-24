@@ -47,9 +47,7 @@ public class AdicionarContaTest extends BaseTest {
         adicionarContaPage.adicionarConta("Limpeza");
         assertTrue(listarContasPage.getSuccesMessageContaAdicionada().isDisplayed());
         assertEquals("Conta adicionada com sucesso!", listarContasPage.getSuccesMessageContaAdicionada().getText());
-        listarContasPage.getConta("Limpeza");
-//        System.out.print(listarContasPage.getConta("Limpeza").getText());
-//        assertEquals("Limpeza", listarContasPage.getConta("Limpeza").getText());
+        assertEquals("Limpeza", listarContasPage.getConta("Limpeza").getText());
     }
 
 

@@ -21,12 +21,11 @@ public class ListarContasPage {
     }
 
     public List<WebElement> getContasTableRows(){
-        return getContasTable().findElements(By.xpath("./tr"));
+        return getContasTable().findElements(By.xpath("./tbody/tr"));
     }
 
     public WebElement getConta(String contaName){
         WebElement conta = null;
-        System.out.print("++++++++++++++++++++++" + contaName);
         for(WebElement contaRow : getContasTableRows()){
             if(contaRow.getText().equals(contaName)){
                 conta = contaRow;
