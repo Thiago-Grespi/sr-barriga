@@ -1,6 +1,7 @@
 package tests;
 
 import core.BaseTest;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import pages.AdicionarContaPage;
@@ -27,6 +28,11 @@ public class AdicionarContaTest extends BaseTest {
         loginPage.logIn("thiago.grespi90@gmail.com", "123456");
         getDriver().get(adicionarContaPage.url);
         isPageReady();
+    }
+
+    @After
+    public void testFinalization(){
+
     }
 
     private void isPageReady() {

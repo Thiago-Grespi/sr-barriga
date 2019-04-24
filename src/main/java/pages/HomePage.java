@@ -26,8 +26,4 @@ public class HomePage extends BasePage {
         return driver.findElement(By.xpath("//div[@class='alert alert-success']"));
     }
 
-    public List<WebElement> getContasList(){
-        return driver.findElements(By.xpath("//*[@id=\"tabelaContas\"]/tbody"));
-    }
-
 }
