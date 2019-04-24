@@ -22,8 +22,6 @@ public class HomePage extends BasePage {
         return driver.findElement(By.xpath("//*[@class='alert alert-success']"));
     }
 
-    public WebElement getSuccesMessageContaAdicionada(){
-        return driver.findElement(By.xpath("//div[@class='alert alert-success']"));
-    }
+
 
 }

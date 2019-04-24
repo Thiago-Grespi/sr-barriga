@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import pages.AdicionarContaPage;
 import pages.HomePage;
+import pages.ListarContasPage;
 import pages.LoginPage;
 
 import java.security.PrivateKey;
@@ -17,12 +18,12 @@ public class AdicionarContaTest extends BaseTest {
 
     private AdicionarContaPage adicionarContaPage;
     private LoginPage loginPage;
-    private HomePage homePage;
+    private ListarContasPage listarContasPage;
 
     @Before
     public void initialSetUp(){
         adicionarContaPage = new AdicionarContaPage();
-        homePage = new HomePage();
+        listarContasPage = new ListarContasPage();
         loginPage = new LoginPage();
         getDriver().get(loginPage.url);
         loginPage.logIn("thiago.grespi90@gmail.com", "123456");
@@ -44,9 +45,11 @@ public class AdicionarContaTest extends BaseTest {
     @Test
     public void adicionarContaWithSuccess(){
         adicionarContaPage.adicionarConta("Limpeza");
-        assertTrue(homePage.getSuccesMessageContaAdicionada().isDisplayed());
-        assertEquals("Conta adicionada com sucesso!", homePage.getSuccesMessageContaAdicionada().getText());
-        assertTrue(homePage.getContasList().contains("Limpeza"));
+        assertTrue(listarContasPage.getSuccesMessageContaAdicionada().isDisplayed());
+        assertEquals("Conta adicionada com sucesso!", listarContasPage.getSuccesMessageContaAdicionada().getText());
+        listarContasPage.getConta("Limpeza");
+//        System.out.print(listarContasPage.getConta("Limpeza").getText());
+//        assertEquals("Limpeza", listarContasPage.getConta("Limpeza").getText());
     }
 
 

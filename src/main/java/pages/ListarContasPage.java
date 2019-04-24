@@ -26,6 +26,7 @@ public class ListarContasPage {
 
     public WebElement getConta(String contaName){
         WebElement conta = null;
+        System.out.print("++++++++++++++++++++++" + contaName);
         for(WebElement contaRow : getContasTableRows()){
             if(contaRow.getText().equals(contaName)){
                 conta = contaRow;
@@ -42,6 +43,9 @@ public class ListarContasPage {
         return getConta(contaName).findElement(By.xpath("./td[2]/a[2]"));
     }
 
+    public WebElement getSuccesMessageContaAdicionada(){
+        return driver.findElement(By.xpath("//div[@class='alert alert-success']"));
+    }
 
 
     // Actions ---------------------------------------
