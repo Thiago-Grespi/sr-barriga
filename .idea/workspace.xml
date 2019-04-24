@@ -2,10 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6380c5ea-2cea-4306-9986-831d5ed7a0cf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tests/AdicionarContaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tests/AdicionarContaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@12bd8a64.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@178213b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@2525ff7e.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@25a6944c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@2c532cd8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@2d1dee39.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@2f17e30d.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@3700ec9c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@3943a2be.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@3e821657.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@45815ffc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@50ecde95.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@54c62d71.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@55740540.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@5e1fa5b1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@5f16132a.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@5f6722d3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@615091b8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@65b3f4a4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@72c28d64.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@ba54932.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshot/org.junit.rules.TestName@ebb6851.jpg" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -22,11 +41,7 @@
     <leaf>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
-            </state>
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -109,6 +124,11 @@
             <path>
               <item name="sr-barriga" type="b2602c69:ProjectViewProjectNode" />
               <item name="sr-barriga" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sr-barriga" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sr-barriga" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -217,7 +237,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49919486" visible="true" weight="0.22314675" />
       <window_info id="Structure" order="1" sideWeight="0.50080514" side_tool="true" weight="0.22012103" />
@@ -508,11 +527,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
