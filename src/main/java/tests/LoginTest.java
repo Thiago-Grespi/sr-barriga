@@ -15,6 +15,7 @@ public class LoginTest extends BaseTest {
 
     private LoginPage loginPage;
     private HomePage homePage;
+    JSONObject logInJsonData;
 
     @Before
     public void initialSetUp(){
@@ -31,13 +32,11 @@ public class LoginTest extends BaseTest {
         assertTrue(loginPage.getLoginButton().isDisplayed());
     }
 
-
     @Test
     public void loginWithSuccess(){
-        String logInDataFileName = setDataFileName("LogInData");
-        JSONObject logInJsonData = getJsonDataObject(logInDataFileName, "valid");
-
-        loginPage.logIn("thiago.grespi90@gmail.com", "123456");
+        logInJsonData = null;
+        logInJsonData = getJsonDataObject("LogInData", "valid");
+        loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
         assertEquals("https://srbarriga.herokuapp.com/logar", homePage.getCurrentURL());
         assertTrue(homePage.getWelcomeMessageText().isDisplayed());
         assertEquals("Bem vindo, Thiago Grespi Goulart!", homePage.getWelcomeMessageText().getText());
@@ -45,9 +44,8 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginWithEmptyFields(){
-        String logInDataFileName = setDataFileName("LogInData");
-        JSONObject logInJsonData = getJsonDataObject(logInDataFileName, "allEmpty");
-
+        logInJsonData = null;
+        logInJsonData = getJsonDataObject("LogInData", "allEmpty");
         loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
         assertTrue(loginPage.getErrorMessageEmailRequired().isDisplayed());
         assertEquals((String) logInJsonData.get("errorMessageEmailRequired"), loginPage.getErrorMessageEmailRequired().getText());
@@ -57,8 +55,8 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginWithIncorrectCredentials(){
-        String logInDataFileName = setDataFileName("LogInData");
-        JSONObject logInJsonData = getJsonDataObject(logInDataFileName, "invalid");
+        logInJsonData = null;
+        logInJsonData = getJsonDataObject("LogInData", "invalid");
 
         loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
         assertTrue(loginPage.getErrosMessageIncorrectCredentials().isDisplayed());

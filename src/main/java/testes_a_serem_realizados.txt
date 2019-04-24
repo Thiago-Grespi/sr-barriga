@@ -1,6 +1,0 @@
-Inserir conta / Inserir conta com nome já existente - Page -
-Alterar conta -
-Inserir movimentação / Validar campos obrigatórios / Movimentação futura
-Remover movimentação
-Remover conta com movimentação
-Saldo das contas

@@ -1,6 +1,7 @@
 package tests;
 
 import core.BaseTest;
+import org.json.simple.JSONObject;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,14 +27,16 @@ public class AdicionarContaTest extends BaseTest {
         listarContasPage = new ListarContasPage();
         loginPage = new LoginPage();
         getDriver().get(loginPage.url);
-        loginPage.logIn("thiago.grespi90@gmail.com", "123456");
+        JSONObject logInJsonData = null;
+        logInJsonData = getJsonDataObject("LogInData", "valid");
+        loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
         getDriver().get(adicionarContaPage.url);
         isPageReady();
     }
 
     @After
     public void testFinalization(){
-
+        listarContasPage.removeConta("Limpeza");
     }
 
     private void isPageReady() {

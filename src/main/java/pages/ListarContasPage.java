@@ -46,11 +46,15 @@ public class ListarContasPage {
         return driver.findElement(By.xpath("//div[@class='alert alert-success']"));
     }
 
-
     // Actions ---------------------------------------
 
+    public void removeConta(String contaName){
+        getContaRemoveButton(contaName).click();
+    }
 
-
+    public void accesContaEditPage(String nomeConta){
+        getContaEditButton(nomeConta).click();
+    }
 
     // Behavior ----------------------------------------
 

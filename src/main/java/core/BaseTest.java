@@ -73,11 +73,12 @@ public class BaseTest {
     }
 
     protected JSONObject getJsonDataObject(String jsonFileName, String dataGroup) {
+        jsonFileName = osAdaptFileName(jsonFileName);
         JSONObject jsonDataObject = null;
         try {
-            Object obj = parser.parse(new FileReader(System.getProperty("user.dir") + File.separator + "src" +
+            Object jsonFileObject = parser.parse(new FileReader(System.getProperty("user.dir") + File.separator + "src" +
                     File.separator + "main" + File.separator + "java" + File.separator + "data" + File.separator + jsonFileName));
-            jsonDataObject = (JSONObject) obj;
+            jsonDataObject = (JSONObject) jsonFileObject;
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -88,8 +89,7 @@ public class BaseTest {
         return (JSONObject) jsonDataObject.get(dataGroup);
     }
 
-
-    protected String setDataFileName(String baseFileName){
+    private String osAdaptFileName(String baseFileName){
         if(System.getProperty("os.name").startsWith("Windows")){
             baseFileName += ".json";
         }
