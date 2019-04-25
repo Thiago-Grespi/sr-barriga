@@ -12,7 +12,5 @@ import tests.LoginTest;
         AdicionarContaTest.class,
 })
 public class AdicionarContaSuite extends BaseRunner {
-    /*
-    This is an alternative method to run your tests suits when u don't want/have the scenarios described in Cucumber Feature
-     */
+
 }

@@ -1,11 +1,13 @@
 {
 
   "valid" : {
-    "nome" : "João"
+    "nome" : "Limpeza",
+    "successMessage" : "Conta adicionada com sucesso!"
   },
 
   "empty" : {
-    "nome" : ""
+    "nome" : "",
+    "errorMessageNomeRequired" : "Informe o nome da conta"
   }
 
 }

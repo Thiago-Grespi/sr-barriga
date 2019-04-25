@@ -1,5 +1,6 @@
 package tests;
 
+import com.google.gson.JsonObject;
 import core.BaseTest;
 import org.json.simple.JSONObject;
 import org.junit.After;
@@ -10,7 +11,9 @@ import pages.HomePage;
 import pages.ListarContasPage;
 import pages.LoginPage;
 
+import java.io.IOException;
 import java.security.PrivateKey;
+import java.util.NoSuchElementException;
 
 import static core.DriverFactory.getDriver;
 import static org.junit.Assert.*;
@@ -40,7 +43,16 @@ public class AdicionarContaTest extends BaseTest {
 
     @After
     public void testFinalization(){
-        listarContasPage.removeConta("Limpeza");
+        JSONObject adicionarContaData = getJsonDataObject("AdicionarContaData", "valid");
+        try{
+            listarContasPage.removeConta((String)adicionarContaData.get("nome"));
+        }
+        catch (NoSuchElementException e){
+//            e.printStackTrace();
+        }
+        catch (RuntimeException e){
+//            e.printStackTrace();
+        }
     }
 
     private void isPageReady() {
@@ -51,12 +63,18 @@ public class AdicionarContaTest extends BaseTest {
 
     @Test
     public void adicionarContaWithSuccess(){
-        adicionarContaPage.adicionarConta("Limpeza");
+        JSONObject adicionarContaData = getJsonDataObject("AdicionarContaData", "valid");
+        adicionarContaPage.adicionarConta((String)adicionarContaData.get("nome"));
         assertTrue(listarContasPage.getSuccesMessageContaAdicionada().isDisplayed());
-        assertEquals("Conta adicionada com sucesso!", listarContasPage.getSuccesMessageContaAdicionada().getText());
-        assertEquals("Limpeza", listarContasPage.getConta("Limpeza").getText());
+        assertEquals(adicionarContaData.get("successMessage"), listarContasPage.getSuccesMessageContaAdicionada().getText());
+        assertEquals(adicionarContaData.get("nome"), listarContasPage.getConta("Limpeza").getText());
     }
 
-
-
+    @Test
+    public void adicionarContaWithoutName(){
+        JSONObject adicionarContaData = getJsonDataObject("AdicionarContaData", "empty");
+        adicionarContaPage.adicionarConta((String)adicionarContaData.get("nome"));
+        assertTrue(adicionarContaPage.getErrorMessageNomeRequired().isDisplayed());
+        assertEquals(adicionarContaData.get("errorMessageNomeRequired"), adicionarContaPage.getErrorMessageNomeRequired().getText());
+    }
 }

@@ -9,12 +9,13 @@ public class Properties {
     public static boolean CLOSE_BROWSER_BETWEEN_TESTS = false;
     public static boolean CLOSE_BROWSER_AFTER_ALL_TESTS = false;
     public static Browsers browsers = Browsers.CHROME;
+    public static boolean HEADLESS_BROWSER = true;
 
     public enum Browsers {
         CHROME,
         FIREFOX
     }
 
-    public static String baseUrl = "http://seubarriga.wcaquino.me/" ;
+    public static String baseUrl = "http://seubarriga.wcaquino.me/";
 
 }
