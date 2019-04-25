@@ -37,9 +37,9 @@ public class LoginTest extends BaseTest {
         logInJsonData = null;
         logInJsonData = getJsonDataObject("LogInData", "valid");
         loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
-        assertEquals("https://srbarriga.herokuapp.com/logar", homePage.getCurrentURL());
+        assertEquals(homePage.url + "logar", homePage.getCurrentURL());
         assertTrue(homePage.getWelcomeMessageText().isDisplayed());
-        assertEquals("Bem vindo, Thiago Grespi Goulart!", homePage.getWelcomeMessageText().getText());
+        assertEquals(logInJsonData.get("welcomeMessage"), homePage.getWelcomeMessageText().getText());
     }
 
     @Test

@@ -1,7 +1,8 @@
 {
   "valid" : {
     "email" : "thiago.grespi90@gmail.com",
-    "pass" : "123456"
+    "pass" : "123456",
+    "welcomeMessage" : "Bem vindo, Thiago!"
   },
 
   "invalid" : {

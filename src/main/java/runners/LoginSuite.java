@@ -9,7 +9,7 @@ import tests.LoginTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-        LoginTest.class,
+        LoginTest.class
 })
 public class LoginSuite extends BaseRunner {
 

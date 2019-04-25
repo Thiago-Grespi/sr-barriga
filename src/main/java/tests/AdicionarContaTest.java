@@ -26,12 +26,16 @@ public class AdicionarContaTest extends BaseTest {
         adicionarContaPage = new AdicionarContaPage();
         listarContasPage = new ListarContasPage();
         loginPage = new LoginPage();
+        login();
+        getDriver().get(adicionarContaPage.url);
+        isPageReady();
+    }
+
+    private void login(){
         getDriver().get(loginPage.url);
         JSONObject logInJsonData = null;
         logInJsonData = getJsonDataObject("LogInData", "valid");
         loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
-        getDriver().get(adicionarContaPage.url);
-        isPageReady();
     }
 
     @After

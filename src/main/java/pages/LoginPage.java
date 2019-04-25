@@ -1,6 +1,7 @@
 package pages;
 
 import core.BasePage;
+import core.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +11,7 @@ import static core.DriverFactory.getDriver;
 public class LoginPage extends BasePage {
 
     private WebDriver driver = getDriver();
-    public String url = "https://srbarriga.herokuapp.com/login";
+    public String url = Properties.baseUrl + "login";
 
 
     // Elements -----------------------------------------------------------

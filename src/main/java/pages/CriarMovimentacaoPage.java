@@ -1,6 +1,7 @@
 package pages;
 
 import core.BasePage;
+import core.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +14,7 @@ import static core.DriverFactory.getDriver;
 public class CriarMovimentacaoPage extends BasePage {
 
     private WebDriver driver = getDriver();
-    public String url = "https://srbarriga.herokuapp.com/movimentacao";
+    public String url = Properties.baseUrl + "movimentacao";
     public enum Situacoes { PAGO, PENDENTE }
 
     // Elements -----------------------------------------------------------
