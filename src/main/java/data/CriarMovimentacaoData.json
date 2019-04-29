@@ -18,7 +18,8 @@
     "interessado" : "Johnny Knoxville",
     "valor" : "100",
     "conta" : "Comercial",
-    "situacao" : "Pago"
+    "situacao" : "PAGO",
+    "successMessage" : "Movimentação adicionada com sucesso!"
   },
 
   "invalidDataMovimentacao": {
@@ -29,7 +30,7 @@
     "interessado" : "Johnny Knoxville",
     "valor" : "100",
     "conta" : "Comercial",
-    "situacao" : "Pago"
+    "situacao" : "PAGO"
   },
 
   "invalidValor": {
@@ -40,6 +41,6 @@
     "interessado" : "Johnny Knoxville",
     "valor" : "abc",
     "conta" : "Comercial",
-    "situacao" : "Pago"
+    "situacao" : "PENDENTE"
   }
 }

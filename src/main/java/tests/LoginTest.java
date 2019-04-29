@@ -21,6 +21,7 @@ public class LoginTest extends BaseTest {
     public void initialSetUp(){
         loginPage = new LoginPage();
         homePage = new HomePage();
+        System.out.println("22222222222222");
         getDriver().get(loginPage.url);
         isPageReady();
     }

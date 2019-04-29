@@ -9,6 +9,7 @@ import org.junit.*;
 import org.junit.rules.TestName;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import pages.LoginPage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -31,6 +32,8 @@ public class BaseTest {
 
     JSONParser parser = new JSONParser();
 
+    private LoginPage loginPage = new LoginPage();
+
 
     // ========================= Before ==================
 
@@ -41,11 +44,8 @@ public class BaseTest {
 
     @Before // indicates that this method needs to be executed before every @Test annotated method
     public void doSomethingBeforeEveryTest(){
-        /*
-        * here you can do some initialization code
-        * data mass control
-        * WebDriver start
-        */
+        System.out.println("111111111111111");
+        loginForTests();
     }
 
     // ========================= After ==================
@@ -94,5 +94,12 @@ public class BaseTest {
             baseFileName += ".json";
         }
         return baseFileName;
+    }
+
+    protected void loginForTests(){
+        getDriver().get(loginPage.url);
+        JSONObject logInJsonData = null;
+        logInJsonData = getJsonDataObject("LogInData", "valid");
+        loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
     }
 }

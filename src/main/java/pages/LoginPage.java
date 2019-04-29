@@ -2,6 +2,7 @@ package pages;
 
 import core.BasePage;
 import core.Properties;
+import org.json.simple.JSONObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

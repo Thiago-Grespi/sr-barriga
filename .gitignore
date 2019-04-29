@@ -78,6 +78,8 @@
 .idea/**/dictionaries
 .idea/**/shelf
 .idea
+Propertiess.java
+Properties.class
 
 # Generated files
 .idea/**/contentModel.xml

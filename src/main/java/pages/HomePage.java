@@ -23,6 +23,8 @@ public class HomePage extends BasePage {
         return driver.findElement(By.xpath("//*[@class='alert alert-success']"));
     }
 
-
+    public WebElement getSuccessMessageMovimentacaaoAdicionada(){
+        return driver.findElement(By.xpath("//*[@class='alert alert-success']"));
+    }
 
 }

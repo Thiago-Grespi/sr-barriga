@@ -64,7 +64,7 @@ public class CriarMovimentacaoPage extends BasePage {
     }
 
     public WebElement getSalvarButton(){
-        return driver.findElement(By.xpath("//button[@class='btn btn-primary'"));
+        return driver.findElement(By.xpath("//button[@class='btn btn-primary']"));
     }
 
     public List<WebElement> getErrorMessagesList(){

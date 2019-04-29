@@ -9,10 +9,6 @@ import org.junit.Test;
 import pages.AdicionarContaPage;
 import pages.HomePage;
 import pages.ListarContasPage;
-import pages.LoginPage;
-
-import java.io.IOException;
-import java.security.PrivateKey;
 import java.util.NoSuchElementException;
 
 import static core.DriverFactory.getDriver;
@@ -21,24 +17,16 @@ import static org.junit.Assert.*;
 public class AdicionarContaTest extends BaseTest {
 
     private AdicionarContaPage adicionarContaPage;
-    private LoginPage loginPage;
     private ListarContasPage listarContasPage;
 
     @Before
     public void initialSetUp(){
         adicionarContaPage = new AdicionarContaPage();
         listarContasPage = new ListarContasPage();
-        loginPage = new LoginPage();
-        login();
+        System.out.println("22222222222222");
+//        loginForTests();
         getDriver().get(adicionarContaPage.url);
         isPageReady();
-    }
-
-    private void login(){
-        getDriver().get(loginPage.url);
-        JSONObject logInJsonData = null;
-        logInJsonData = getJsonDataObject("LogInData", "valid");
-        loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
     }
 
     @After
