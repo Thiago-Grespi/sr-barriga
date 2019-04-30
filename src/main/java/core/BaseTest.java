@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.Charset;
 
 import static core.DriverFactory.getDriver;
 import static core.DriverFactory.killDriver;
@@ -96,10 +97,15 @@ public class BaseTest {
         return baseFileName;
     }
 
-    protected void loginForTests(){
+    private void loginForTests(){
         getDriver().get(loginPage.url);
         JSONObject logInJsonData = null;
         logInJsonData = getJsonDataObject("LogInData", "valid");
         loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
+    }
+
+    public String encodingAdaption(JSONObject jsonData, String jsonProperty){
+        return new String(jsonData.get("successMessage").
+                toString().getBytes(Charset.forName("ISO-8859-1")), Charset.forName("UTF-8"));
     }
 }

@@ -7,6 +7,7 @@ import org.junit.Test;
 import pages.CriarMovimentacaoPage;
 import pages.HomePage;
 import pages.LoginPage;
+import java.nio.charset.Charset;
 
 import java.util.Objects;
 
@@ -68,7 +69,8 @@ public class CriarMovimentacaoTest extends BaseTest{
                 setSituacao((String) movimentacaoJsonData.get("situacao"))
         );
         assertEquals(homePage.url + "salvarMovimentacao", getDriver().getCurrentUrl());
-        assertEquals((String) movimentacaoJsonData.get("successMessage"), homePage.getSuccessMessageMovimentacaaoAdicionada().getText());
+        String successMessage = encodingAdaption(movimentacaoJsonData, "successMessage");
+        assertEquals(successMessage , homePage.getSuccessMessageMovimentacaaoAdicionada().getText());
     }
 
 //    @Test

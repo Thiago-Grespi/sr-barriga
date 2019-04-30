@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: runners.RunAllTests
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 24.515 s <<< FAILURE! - in runners.RunAllTests
+loginWithIncorrectCredentials(tests.LoginTest)  Time elapsed: 3.634 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<...s com o login do usu[Ã¡]rio> but was:<...s com o login do usu[á]rio>
+	at tests.LoginTest.loginWithIncorrectCredentials(LoginTest.java:64)
+
+loginWithEmptyFields(tests.LoginTest)  Time elapsed: 2.896 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<Email [Ã© um campo obrigatÃ³]rio> but was:<Email [é um campo obrigató]rio>
+	at tests.LoginTest.loginWithEmptyFields(LoginTest.java:52)
+
+createMovimentacaoWithSuccess(tests.CriarMovimentacaoTest)  Time elapsed: 3.777 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<Movimenta[Ã§Ã£]o adicionada com suc...> but was:<Movimenta[çã]o adicionada com suc...>
+	at tests.CriarMovimentacaoTest.createMovimentacaoWithSuccess(CriarMovimentacaoTest.java:71)
+

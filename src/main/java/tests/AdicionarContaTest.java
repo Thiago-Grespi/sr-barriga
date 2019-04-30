@@ -9,6 +9,8 @@ import org.junit.Test;
 import pages.AdicionarContaPage;
 import pages.HomePage;
 import pages.ListarContasPage;
+
+import java.nio.charset.Charset;
 import java.util.NoSuchElementException;
 
 import static core.DriverFactory.getDriver;
@@ -54,7 +56,8 @@ public class AdicionarContaTest extends BaseTest {
         JSONObject adicionarContaData = getJsonDataObject("AdicionarContaData", "valid");
         adicionarContaPage.adicionarConta((String)adicionarContaData.get("nome"));
         assertTrue(listarContasPage.getSuccesMessageContaAdicionada().isDisplayed());
-        assertEquals(adicionarContaData.get("successMessage"), listarContasPage.getSuccesMessageContaAdicionada().getText());
+        String successMessage = encodingAdaption(adicionarContaData, "successMessage");
+        assertEquals(successMessage, listarContasPage.getSuccesMessageContaAdicionada().getText());
         assertEquals(adicionarContaData.get("nome"), listarContasPage.getConta("Limpeza").getText());
     }
 
