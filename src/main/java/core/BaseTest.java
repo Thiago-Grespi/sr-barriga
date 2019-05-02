@@ -45,7 +45,7 @@ public class BaseTest {
 
     @Before // indicates that this method needs to be executed before every @Test annotated method
     public void doSomethingBeforeEveryTest(){
-        System.out.println("111111111111111");
+        System.out.println("NOME DO TESTE");
         loginForTests();
     }
 
@@ -104,8 +104,8 @@ public class BaseTest {
         loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
     }
 
-    public String encodingAdaption(JSONObject jsonData, String jsonProperty){
-        return new String(jsonData.get("successMessage").
+    protected String encodingAdaption(JSONObject jsonData, String jsonProperty){
+        return new String(jsonData.get(jsonProperty).
                 toString().getBytes(Charset.forName("ISO-8859-1")), Charset.forName("UTF-8"));
     }
 }

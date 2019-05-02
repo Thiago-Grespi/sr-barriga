@@ -21,7 +21,6 @@ public class LoginTest extends BaseTest {
     public void initialSetUp(){
         loginPage = new LoginPage();
         homePage = new HomePage();
-        System.out.println("22222222222222");
         getDriver().get(loginPage.url);
         isPageReady();
     }
@@ -35,32 +34,47 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginWithSuccess(){
+        System.out.println("loginWithSuccess");
         logInJsonData = null;
         logInJsonData = getJsonDataObject("LogInData", "valid");
         loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
         assertEquals(homePage.url + "logar", homePage.getCurrentURL());
         assertTrue(homePage.getWelcomeMessageText().isDisplayed());
-        assertEquals(logInJsonData.get("welcomeMessage"), homePage.getWelcomeMessageText().getText());
+
+        String welcomeMessage = encodingAdaption(logInJsonData, "welcomeMessage");
+        assertEquals(welcomeMessage, homePage.getWelcomeMessageText().getText());
+//        assertEquals(logInJsonData.get("welcomeMessage"), homePage.getWelcomeMessageText().getText());
     }
 
     @Test
     public void loginWithEmptyFields(){
+        System.out.println("loginWithEmptyFields");
         logInJsonData = null;
         logInJsonData = getJsonDataObject("LogInData", "allEmpty");
         loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
         assertTrue(loginPage.getErrorMessageEmailRequired().isDisplayed());
-        assertEquals((String) logInJsonData.get("errorMessageEmailRequired"), loginPage.getErrorMessageEmailRequired().getText());
+
+        String errorMessageEmailRequired = encodingAdaption(logInJsonData, "errorMessageEmailRequired");
+        assertEquals(errorMessageEmailRequired, loginPage.getErrorMessageEmailRequired().getText());
+//        assertEquals(logInJsonData.get("errorMessageEmailRequired"), loginPage.getErrorMessageEmailRequired().getText());
+
         assertTrue(loginPage.getErrorMessagePasswordRequired().isDisplayed());
-        assertEquals((String) logInJsonData.get("errorMessageSenhaRequired"), loginPage.getErrorMessagePasswordRequired().getText());
+
+        String errorMessageSenhaRequired = encodingAdaption(logInJsonData, "errorMessageSenhaRequired");
+        assertEquals(errorMessageSenhaRequired, loginPage.getErrorMessagePasswordRequired().getText());
+//        assertEquals(logInJsonData.get("errorMessageSenhaRequired"), loginPage.getErrorMessagePasswordRequired().getText());
     }
 
     @Test
     public void loginWithIncorrectCredentials(){
+        System.out.println("loginWithIncorrectCredentials");
         logInJsonData = null;
         logInJsonData = getJsonDataObject("LogInData", "invalid");
-
         loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
         assertTrue(loginPage.getErrosMessageIncorrectCredentials().isDisplayed());
-        assertEquals((String) logInJsonData.get("errorMessageIncorrectCredentials"), loginPage.getErrosMessageIncorrectCredentials().getText());
+
+        String errorMessageIncorrectCredentials = encodingAdaption(logInJsonData, "errorMessageIncorrectCredentials");
+        assertEquals(errorMessageIncorrectCredentials, loginPage.getErrosMessageIncorrectCredentials().getText());
+//        assertEquals(logInJsonData.get("errorMessageIncorrectCredentials"), loginPage.getErrosMessageIncorrectCredentials().getText());
     }
 }

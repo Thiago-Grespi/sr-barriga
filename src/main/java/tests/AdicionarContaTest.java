@@ -25,8 +25,6 @@ public class AdicionarContaTest extends BaseTest {
     public void initialSetUp(){
         adicionarContaPage = new AdicionarContaPage();
         listarContasPage = new ListarContasPage();
-        System.out.println("22222222222222");
-//        loginForTests();
         getDriver().get(adicionarContaPage.url);
         isPageReady();
     }
@@ -53,19 +51,27 @@ public class AdicionarContaTest extends BaseTest {
 
     @Test
     public void adicionarContaWithSuccess(){
+        System.out.println("adicionarContaWithSuccess");
         JSONObject adicionarContaData = getJsonDataObject("AdicionarContaData", "valid");
         adicionarContaPage.adicionarConta((String)adicionarContaData.get("nome"));
         assertTrue(listarContasPage.getSuccesMessageContaAdicionada().isDisplayed());
+
         String successMessage = encodingAdaption(adicionarContaData, "successMessage");
         assertEquals(successMessage, listarContasPage.getSuccesMessageContaAdicionada().getText());
+//        assertEquals(adicionarContaData.get("successMessage"), listarContasPage.getSuccesMessageContaAdicionada().getText());
+
         assertEquals(adicionarContaData.get("nome"), listarContasPage.getConta("Limpeza").getText());
     }
 
     @Test
     public void adicionarContaWithoutName(){
+        System.out.println("adicionarContaWithoutName");
         JSONObject adicionarContaData = getJsonDataObject("AdicionarContaData", "empty");
         adicionarContaPage.adicionarConta((String)adicionarContaData.get("nome"));
         assertTrue(adicionarContaPage.getErrorMessageNomeRequired().isDisplayed());
-        assertEquals(adicionarContaData.get("errorMessageNomeRequired"), adicionarContaPage.getErrorMessageNomeRequired().getText());
+
+        String errorMessageNomeRequired = encodingAdaption(adicionarContaData, "errorMessageNomeRequired");
+        assertEquals(errorMessageNomeRequired, adicionarContaPage.getErrorMessageNomeRequired().getText());
+//        assertEquals(adicionarContaData.get("errorMessageNomeRequired"), adicionarContaPage.getErrorMessageNomeRequired().getText());
     }
 }

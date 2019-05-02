@@ -27,7 +27,6 @@ public class CriarMovimentacaoTest extends BaseTest{
     public void initialSetUp(){
         criarMovimentacaoPage = new CriarMovimentacaoPage();
         homePage = new HomePage();
-        System.out.println("22222222222222");
 //        loginForTests();
         getDriver().get(criarMovimentacaoPage.url);
         isPageReady();
@@ -57,6 +56,7 @@ public class CriarMovimentacaoTest extends BaseTest{
 
     @Test
     public void createMovimentacaoWithSuccess(){
+        System.out.println("createMovimentacaoWithSuccess");
         JSONObject movimentacaoJsonData = getJsonDataObject("CriarMovimentacaoData", "valid");
         criarMovimentacaoPage.createMovimentacao(
                 (String) movimentacaoJsonData.get("tipoMovimentacao"),
@@ -69,8 +69,10 @@ public class CriarMovimentacaoTest extends BaseTest{
                 setSituacao((String) movimentacaoJsonData.get("situacao"))
         );
         assertEquals(homePage.url + "salvarMovimentacao", getDriver().getCurrentUrl());
+
         String successMessage = encodingAdaption(movimentacaoJsonData, "successMessage");
         assertEquals(successMessage , homePage.getSuccessMessageMovimentacaaoAdicionada().getText());
+//        assertEquals(movimentacaoJsonData.get("successMessage") , homePage.getSuccessMessageMovimentacaaoAdicionada().getText());
     }
 
 //    @Test

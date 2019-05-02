@@ -27,13 +27,11 @@
                 <version>3.0.0-M3</version>
                 <configuration>
                     <includes>
-                        <include>CriarMovimentacaoSuite.java</include>
+                        <include>RunAllTests.java</include>
                     </includes>
                 </configuration>
             </plugin>
         </plugins>
-
-
 
     </build>
 
@@ -67,5 +65,10 @@
         </dependency>
 
     </dependencies>
+
+    <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+</properties>
 
 </project>
