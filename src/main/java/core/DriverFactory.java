@@ -14,25 +14,31 @@ public class DriverFactory {
     The only one responsibility of this class is to manipulate the WebDriver
      */
 
-    private static WebDriver driver;
-
-    private DriverFactory() {}
+    private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<WebDriver>(){
+        @Override
+        protected synchronized WebDriver initialValue(){
+            return initDriver();
+        }
+    };
 
     public static WebDriver getDriver(){
-        if(driver == null){
-            switch (Properties.browsers){
-                case CHROME:
-                    if(System.getProperty("os.name").startsWith("Windows")){
-                        String chromedriverPath = System.getProperty("user.home") + File.separator + "drivers" + File.separator + "chromedriver.exe";
-                        System.setProperty("webdriver.chrome.driver", chromedriverPath);
-                    }
-                    driver = new ChromeDriver(setChromeOptions()); break;
-                case FIREFOX:
-                    driver = new FirefoxDriver(); break;
-            }
+            return threadDriver.get();
+    }
 
-            driver.manage().window().maximize();
+    private static WebDriver initDriver(){
+        WebDriver driver = null;
+        switch (Properties.browsers){
+            case CHROME:
+                if(System.getProperty("os.name").startsWith("Windows")){
+                    String chromedriverPath = System.getProperty("user.home") + File.separator + "drivers" + File.separator + "chromedriver.exe";
+                    System.setProperty("webdriver.chrome.driver", chromedriverPath);
+                }
+                driver = new ChromeDriver(setChromeOptions()); break;
+            case FIREFOX:
+                driver = new FirefoxDriver(); break;
         }
+
+        driver.manage().window().maximize();
         return driver;
     }
 
@@ -45,9 +51,13 @@ public class DriverFactory {
     }
 
     public static void killDriver(){
+        WebDriver driver = getDriver();
         if(driver != null){
             driver.quit();
             driver = null;
+        }
+        if (threadDriver != null){
+            threadDriver.remove();
         }
     }
 }

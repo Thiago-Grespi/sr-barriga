@@ -15,6 +15,7 @@ pages\AdicionarContaPage.class
 tests\CriarMovimentacaoTest.class
 runners\AdicionarContaSuite.class
 runners\LoginSuite.class
+core\DriverFactory$2.class
 core\DriverFactory$1.class
 core\Properties.class
 pages\CriarMovimentacaoPage.class

@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: tests.CriarMovimentacaoTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 29.351 s <<< FAILURE! - in tests.CriarMovimentacaoTest
+createMovimentacaoWithSuccess(tests.CriarMovimentacaoTest)  Time elapsed: 29.351 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<...barriga.wcaquino.me/[movimentacao]> but was:<...barriga.wcaquino.me/[addConta]>
+	at tests.CriarMovimentacaoTest.isPageReady(CriarMovimentacaoTest.java:36)
+	at tests.CriarMovimentacaoTest.initialSetUp(CriarMovimentacaoTest.java:32)
+
