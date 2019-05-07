@@ -15,7 +15,7 @@ public class LoginTest extends BaseTest {
 
     private LoginPage loginPage;
     private HomePage homePage;
-    JSONObject logInJsonData;
+    private JSONObject logInJsonData;
 
     @Before
     public void initialSetUp(){
@@ -34,7 +34,6 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginWithSuccess(){
-        System.out.println("loginWithSuccess");
         logInJsonData = null;
         logInJsonData = getJsonDataObject("LogInData", "valid");
         loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
@@ -48,7 +47,6 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginWithEmptyFields(){
-        System.out.println("loginWithEmptyFields");
         logInJsonData = null;
         logInJsonData = getJsonDataObject("LogInData", "allEmpty");
         loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
@@ -67,7 +65,6 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginWithIncorrectCredentials(){
-        System.out.println("loginWithIncorrectCredentials");
         logInJsonData = null;
         logInJsonData = getJsonDataObject("LogInData", "invalid");
         loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
