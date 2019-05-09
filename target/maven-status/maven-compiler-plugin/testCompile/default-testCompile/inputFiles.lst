@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-C:\automacao-java\sr-barriga\src\main\java\tests\ListarResumoMensalTest.java
-C:\automacao-java\sr-barriga\src\main\java\core\BaseTest.java
-C:\automacao-java\sr-barriga\src\main\java\pages\CriarMovimentacaoPage.java
-C:\automacao-java\sr-barriga\src\main\java\core\BaseRunner.java
-C:\automacao-java\sr-barriga\src\main\java\tests\LoginTest.java
-C:\automacao-java\sr-barriga\src\main\java\core\Properties.java
-C:\automacao-java\sr-barriga\src\main\java\runners\RunAllTests.java
-C:\automacao-java\sr-barriga\src\main\java\pages\ListarContasPage.java
-C:\automacao-java\sr-barriga\src\main\java\pages\ListarResumoMensalPage.java
-C:\automacao-java\sr-barriga\src\main\java\pages\HomePage.java
-C:\automacao-java\sr-barriga\src\main\java\pages\AdicionarContaPage.java
-C:\automacao-java\sr-barriga\src\main\java\core\DriverFactory.java
-C:\automacao-java\sr-barriga\src\main\java\runners\AdicionarContaSuite.java
-C:\automacao-java\sr-barriga\src\main\java\tests\AdicionarContaTest.java
-C:\automacao-java\sr-barriga\src\main\java\pages\LoginPage.java
-C:\automacao-java\sr-barriga\src\main\java\tests\CriarMovimentacaoTest.java
-C:\automacao-java\sr-barriga\src\main\java\core\BasePage.java
-C:\automacao-java\sr-barriga\src\main\java\runners\ListarResumoMensalSuite.java
-C:\automacao-java\sr-barriga\src\main\java\runners\LoginSuite.java
-=======
 C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\pages\ListarContasPage.java
 C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\tests\AdicionarContaTest.java
 C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\runners\AdicionarContaSuite.java
@@ -36,4 +15,3 @@ C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\core\BaseRun
 C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\runners\RunAllTests.java
 C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\pages\HomePage.java
 C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\runners\LoginSuite.java
->>>>>>> 9dcb8705ae8baff68d49e2ee69955153e016631c

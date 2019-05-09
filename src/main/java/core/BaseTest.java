@@ -8,10 +8,12 @@ import org.junit.*;
 import org.junit.rules.TestName;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import pages.LoginPage;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.Charset;
 
 import static core.DriverFactory.getDriver;
 import static core.DriverFactory.killDriver;
@@ -26,6 +28,8 @@ public class BaseTest {
 
     JSONParser parser = new JSONParser();
 
+    private LoginPage loginPage = new LoginPage();
+
 
     // ========================= Before ==================
 
@@ -35,12 +39,9 @@ public class BaseTest {
     }
 
     @Before // indicates that this method needs to be executed before every @Test annotated method
-    public void doSomethingBeforeEveryTest() {
-        /*
-         * here you can do some initialization code
-         * data mass control
-         * WebDriver start
-         */
+
+    public void doSomethingBeforeEveryTest(){
+        loginForTests();
     }
 
     // ========================= After ==================
@@ -55,7 +56,6 @@ public class BaseTest {
 
     @AfterClass
     public static void doSomethingAfterClassExecution() {
-        getDriver().quit();
     }
 
     // ========================= Methods ==================
@@ -88,4 +88,17 @@ public class BaseTest {
         }
         return baseFileName;
     }
+
+    private void loginForTests(){
+        getDriver().get(loginPage.url);
+        JSONObject logInJsonData = null;
+        logInJsonData = getJsonDataObject("LogInData", "valid");
+        loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
+    }
+
+    protected String getJsonDataProperty(JSONObject jsonData, String jsonProperty){
+        return new String(jsonData.get(jsonProperty).
+                toString().getBytes(Charset.forName("ISO-8859-1")), Charset.forName("UTF-8"));
+    }
+
 }

@@ -15,7 +15,7 @@ public class LoginTest extends BaseTest {
 
     private LoginPage loginPage;
     private HomePage homePage;
-    JSONObject logInJsonData;
+    private JSONObject logInJsonData;
 
     @Before
     public void initialSetUp(){
@@ -39,7 +39,7 @@ public class LoginTest extends BaseTest {
         loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
         assertEquals(homePage.url + "logar", homePage.getCurrentURL());
         assertTrue(homePage.getWelcomeMessageText().isDisplayed());
-        assertEquals(logInJsonData.get("welcomeMessage"), homePage.getWelcomeMessageText().getText());
+        assertEquals(getJsonDataProperty(logInJsonData, "welcomeMessage"), homePage.getWelcomeMessageText().getText());
     }
 
     @Test
@@ -48,18 +48,20 @@ public class LoginTest extends BaseTest {
         logInJsonData = getJsonDataObject("LogInData", "allEmpty");
         loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
         assertTrue(loginPage.getErrorMessageEmailRequired().isDisplayed());
-        assertEquals((String) logInJsonData.get("errorMessageEmailRequired"), loginPage.getErrorMessageEmailRequired().getText());
+        assertEquals(getJsonDataProperty(logInJsonData, "errorMessageEmailRequired"),
+                loginPage.getErrorMessageEmailRequired().getText());
         assertTrue(loginPage.getErrorMessagePasswordRequired().isDisplayed());
-        assertEquals((String) logInJsonData.get("errorMessageSenhaRequired"), loginPage.getErrorMessagePasswordRequired().getText());
+        assertEquals(getJsonDataProperty(logInJsonData, "errorMessageSenhaRequired"),
+                loginPage.getErrorMessagePasswordRequired().getText());
     }
 
     @Test
     public void loginWithIncorrectCredentials(){
         logInJsonData = null;
         logInJsonData = getJsonDataObject("LogInData", "invalid");
-
         loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
         assertTrue(loginPage.getErrosMessageIncorrectCredentials().isDisplayed());
-        assertEquals((String) logInJsonData.get("errorMessageIncorrectCredentials"), loginPage.getErrosMessageIncorrectCredentials().getText());
+        assertEquals(getJsonDataProperty(logInJsonData, "errorMessageIncorrectCredentials"),
+                loginPage.getErrosMessageIncorrectCredentials().getText());
     }
 }

@@ -7,6 +7,35 @@
     <groupId>mr.wcaquino.srbarriga</groupId>
     <artifactId>srBarriga</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <build>
+
+        <testSourceDirectory>src</testSourceDirectory>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>7</source>
+                    <target>7</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M3</version>
+                <configuration>
+                    <includes>
+                        <include>CriarMovimentacaoSuite.java</include>
+                    </includes>
+<!--                    <parallel>all</parallel>-->
+<!--                    <threadCount>3</threadCount>-->
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
 
     <dependencies>
 
@@ -23,6 +52,7 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -36,5 +66,10 @@
         </dependency>
 
     </dependencies>
+
+    <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+</properties>
 
 </project>
