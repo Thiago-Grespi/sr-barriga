@@ -26,9 +26,11 @@ public class DriverFactory {
                         String chromedriverPath = System.getProperty("user.home") + File.separator + "drivers" + File.separator + "chromedriver.exe";
                         System.setProperty("webdriver.chrome.driver", chromedriverPath);
                     }
-                    driver = new ChromeDriver(setChromeOptions()); break;
+                    driver = new ChromeDriver(); //new ChromeDriver(setChromeOptions());
+                    break;
                 case FIREFOX:
-                    driver = new FirefoxDriver(); break;
+                    driver = new FirefoxDriver();
+                    break;
             }
 
             driver.manage().window().maximize();

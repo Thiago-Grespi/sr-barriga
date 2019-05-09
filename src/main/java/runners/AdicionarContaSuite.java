@@ -9,7 +9,7 @@ import tests.LoginTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-        AdicionarContaTest.class,
+        AdicionarContaTest.class
 })
 public class AdicionarContaSuite extends BaseRunner {
 

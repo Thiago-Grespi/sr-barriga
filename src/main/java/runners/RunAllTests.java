@@ -8,7 +8,8 @@ import tests.LoginTest;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         LoginTest.class,
-        AdicionarContaTest.class
+        AdicionarContaTest.class,
+        ListarResumoMensalSuite.class
 })
 public class RunAllTests {
 

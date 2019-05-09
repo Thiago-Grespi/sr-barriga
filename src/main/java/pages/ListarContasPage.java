@@ -55,9 +55,4 @@ public class ListarContasPage {
     public void accesContaEditPage(String nomeConta){
         getContaEditButton(nomeConta).click();
     }
-
-    // Behavior ----------------------------------------
-
-
-
 }

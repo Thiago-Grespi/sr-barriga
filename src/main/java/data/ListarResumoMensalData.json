@@ -1,0 +1,23 @@
+{
+  "current": {
+    "mes": "Maio",
+    "ano": "2019"
+  },
+
+  "list": {
+    "mes": "Maio",
+    "ano": "2019",
+    "descricaoMovimentacao": "Conta de Maio",
+    "dataPagamento": "06/05/2019",
+    "conta": "Logística",
+    "valor": "333.00",
+    "situacao": "Pendente"
+  },
+
+  "remove": {
+    "mes": "Abril",
+    "ano": "2019",
+    "descricaoMovimentacao": "Movimentação para ser removida",
+    "successMessage": "Movimentação removida com sucesso!"
+  }
+}
