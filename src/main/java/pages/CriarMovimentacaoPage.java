@@ -67,8 +67,28 @@ public class CriarMovimentacaoPage extends BasePage {
         return driver.findElement(By.xpath("//button[@class='btn btn-primary']"));
     }
 
-    public List<WebElement> getErrorMessagesList(){
-        return driver.findElements(By.xpath("/html/body/div[1]"));
+    public WebElement getErrorMessageDataMovimentacaoRequired(){
+        return driver.findElement(By.xpath("/html/body/div[1]/ul/li"));
+    }
+
+    public WebElement getErrorMessageDataPagamentoRequired(){
+        return driver.findElement(By.xpath("/html/body/div[1]/ul/li[2]"));
+    }
+
+    public WebElement getErrorMessageDescricaoRequired(){
+        return driver.findElement(By.xpath("/html/body/div[1]/ul/li[3]"));
+    }
+
+    public WebElement getErrorMessageInteressadoRequired(){
+        return driver.findElement(By.xpath("/html/body/div[1]/ul/li[4]"));
+    }
+
+    public WebElement getErrorMessageValorRequired(){
+        return driver.findElement(By.xpath("/html/body/div[1]/ul/li[5]"));
+    }
+
+    public WebElement getErrorMessageValorMustBeNumber(){
+        return driver.findElement(By.xpath("/html/body/div[1]/ul/li[6]"));
     }
 
     // Actions --------------------------------------------------------
@@ -101,13 +121,11 @@ public class CriarMovimentacaoPage extends BasePage {
         getContaItems().selectByVisibleText(contaVisibleText);
     }
 
-    public void setSituacao(Situacoes situacao){
-        switch (situacao){
-            case PAGO:
-                getSituacaoPagoRadio().click();
-            case PENDENTE:
-                getSituacaoPendenteRadio().click();
+    public void setSituacao(String situacao){
+        if (situacao.equals("PAGO")){
+            getSituacaoPagoRadio().click();
         }
+        getSituacaoPendenteRadio().click();
     }
 
     public void clickSalvar(){
@@ -124,7 +142,7 @@ public class CriarMovimentacaoPage extends BasePage {
             String interessado,
             String valor,
             String contaVisibleText,
-            Situacoes situacao
+            String situacao
             ){
         setTipoMovimentacao(tipoMovimentacao);
         setDataMovimentacao(dataMovimentacao);

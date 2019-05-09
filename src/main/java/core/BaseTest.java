@@ -12,7 +12,6 @@ import org.openqa.selenium.TakesScreenshot;
 import pages.LoginPage;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -45,7 +44,6 @@ public class BaseTest {
 
     @Before // indicates that this method needs to be executed before every @Test annotated method
     public void doSomethingBeforeEveryTest(){
-        System.out.println("NOME DO TESTE");
         loginForTests();
     }
 
@@ -104,8 +102,9 @@ public class BaseTest {
         loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
     }
 
-    protected String encodingAdaption(JSONObject jsonData, String jsonProperty){
+    protected String getJsonDataProperty(JSONObject jsonData, String jsonProperty){
         return new String(jsonData.get(jsonProperty).
                 toString().getBytes(Charset.forName("ISO-8859-1")), Charset.forName("UTF-8"));
     }
+
 }

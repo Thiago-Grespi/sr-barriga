@@ -1,5 +1,4 @@
 tests\AdicionarContaTest.class
-pages\CriarMovimentacaoPage$1.class
 runners\RunAllTests.class
 pages\CriarMovimentacaoPage$Situacoes.class
 pages\LoginPage.class

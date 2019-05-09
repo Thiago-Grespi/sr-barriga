@@ -39,10 +39,7 @@ public class LoginTest extends BaseTest {
         loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
         assertEquals(homePage.url + "logar", homePage.getCurrentURL());
         assertTrue(homePage.getWelcomeMessageText().isDisplayed());
-
-        String welcomeMessage = encodingAdaption(logInJsonData, "welcomeMessage");
-        assertEquals(welcomeMessage, homePage.getWelcomeMessageText().getText());
-//        assertEquals(logInJsonData.get("welcomeMessage"), homePage.getWelcomeMessageText().getText());
+        assertEquals(getJsonDataProperty(logInJsonData, "welcomeMessage"), homePage.getWelcomeMessageText().getText());
     }
 
     @Test
@@ -51,16 +48,11 @@ public class LoginTest extends BaseTest {
         logInJsonData = getJsonDataObject("LogInData", "allEmpty");
         loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
         assertTrue(loginPage.getErrorMessageEmailRequired().isDisplayed());
-
-        String errorMessageEmailRequired = encodingAdaption(logInJsonData, "errorMessageEmailRequired");
-        assertEquals(errorMessageEmailRequired, loginPage.getErrorMessageEmailRequired().getText());
-//        assertEquals(logInJsonData.get("errorMessageEmailRequired"), loginPage.getErrorMessageEmailRequired().getText());
-
+        assertEquals(getJsonDataProperty(logInJsonData, "errorMessageEmailRequired"),
+                loginPage.getErrorMessageEmailRequired().getText());
         assertTrue(loginPage.getErrorMessagePasswordRequired().isDisplayed());
-
-        String errorMessageSenhaRequired = encodingAdaption(logInJsonData, "errorMessageSenhaRequired");
-        assertEquals(errorMessageSenhaRequired, loginPage.getErrorMessagePasswordRequired().getText());
-//        assertEquals(logInJsonData.get("errorMessageSenhaRequired"), loginPage.getErrorMessagePasswordRequired().getText());
+        assertEquals(getJsonDataProperty(logInJsonData, "errorMessageSenhaRequired"),
+                loginPage.getErrorMessagePasswordRequired().getText());
     }
 
     @Test
@@ -69,9 +61,7 @@ public class LoginTest extends BaseTest {
         logInJsonData = getJsonDataObject("LogInData", "invalid");
         loginPage.logIn((String) logInJsonData.get("email"), (String) logInJsonData.get("pass"));
         assertTrue(loginPage.getErrosMessageIncorrectCredentials().isDisplayed());
-
-        String errorMessageIncorrectCredentials = encodingAdaption(logInJsonData, "errorMessageIncorrectCredentials");
-        assertEquals(errorMessageIncorrectCredentials, loginPage.getErrosMessageIncorrectCredentials().getText());
-//        assertEquals(logInJsonData.get("errorMessageIncorrectCredentials"), loginPage.getErrosMessageIncorrectCredentials().getText());
+        assertEquals(getJsonDataProperty(logInJsonData, "errorMessageIncorrectCredentials"),
+                loginPage.getErrosMessageIncorrectCredentials().getText());
     }
 }

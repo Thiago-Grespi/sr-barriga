@@ -1,13 +1,19 @@
 {
   "allEmpty": {
-    "tipoMovimentacao" : "",
+    "tipoMovimentacao" : "Receita",
     "dataMovimentacao" : "",
     "dataPagamento" : "",
     "descricao" : "",
     "interessado" : "",
     "valor" : "",
-    "conta" : "",
-    "situacao" : ""
+    "conta" : "Comercial",
+    "situacao" : "",
+    "dataMovimentacaoRequiredMessage" : "Data da Movimentação é obrigatório",
+    "dataPagamentoRequiredMessage" : "Data do pagamento é obrigatório",
+    "descricaoRequiredMessage" : "Descrição é obrigatório",
+    "interessadoRequiredMessage" : "Interessado é obrigatório",
+    "valorRequiredMessage" : "Valor é obrigatório",
+    "valorMustBeNumberMessage" : "Valor deve ser um número"
   },
 
   "valid": {

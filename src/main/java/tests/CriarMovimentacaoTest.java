@@ -56,7 +56,6 @@ public class CriarMovimentacaoTest extends BaseTest{
 
     @Test
     public void createMovimentacaoWithSuccess(){
-        System.out.println("createMovimentacaoWithSuccess");
         JSONObject movimentacaoJsonData = getJsonDataObject("CriarMovimentacaoData", "valid");
         criarMovimentacaoPage.createMovimentacao(
                 (String) movimentacaoJsonData.get("tipoMovimentacao"),
@@ -66,20 +65,52 @@ public class CriarMovimentacaoTest extends BaseTest{
                 (String) movimentacaoJsonData.get("interessado"),
                 (String) movimentacaoJsonData.get("valor"),
                 (String) movimentacaoJsonData.get("conta"),
-                setSituacao((String) movimentacaoJsonData.get("situacao"))
+                (String) movimentacaoJsonData.get("situacao")
         );
         assertEquals(homePage.url + "salvarMovimentacao", getDriver().getCurrentUrl());
-
-        String successMessage = encodingAdaption(movimentacaoJsonData, "successMessage");
-        assertEquals(successMessage , homePage.getSuccessMessageMovimentacaaoAdicionada().getText());
-//        assertEquals(movimentacaoJsonData.get("successMessage") , homePage.getSuccessMessageMovimentacaaoAdicionada().getText());
+        assertEquals(getJsonDataProperty(movimentacaoJsonData, "successMessage") , homePage.getSuccessMessageMovimentacaaoAdicionada().getText());
     }
 
-//    @Test
-//    public void createMovimentacaoWithAllEmptyField(){
-//
-//    }
-//
+    @Test
+    public void createMovimentacaoWithAllEmptyField(){
+        JSONObject movimentacaoJsonData = getJsonDataObject("CriarMovimentacaoData", "allEmpty");
+        criarMovimentacaoPage.createMovimentacao(
+                (String) movimentacaoJsonData.get("tipoMovimentacao"),
+                (String) movimentacaoJsonData.get("dataMovimentacao"),
+                (String) movimentacaoJsonData.get("dataPagamento"),
+                (String) movimentacaoJsonData.get("descricao"),
+                (String) movimentacaoJsonData.get("interessado"),
+                (String) movimentacaoJsonData.get("valor"),
+                (String) movimentacaoJsonData.get("conta"),
+                (String) movimentacaoJsonData.get("situacao")
+        );
+        assertEquals(homePage.url + "salvarMovimentacao", getDriver().getCurrentUrl());
+        assertTrue(criarMovimentacaoPage.getErrorMessageDataMovimentacaoRequired().isDisplayed() &&
+                criarMovimentacaoPage.getErrorMessageDataPagamentoRequired().isDisplayed() &&
+                criarMovimentacaoPage.getErrorMessageDescricaoRequired().isDisplayed() &&
+                criarMovimentacaoPage.getErrorMessageInteressadoRequired().isDisplayed() &&
+                criarMovimentacaoPage.getErrorMessageValorRequired().isDisplayed() &&
+                criarMovimentacaoPage.getErrorMessageValorMustBeNumber().isDisplayed()
+                );
+        assertEquals(getJsonDataProperty(movimentacaoJsonData, "dataMovimentacaoRequiredMessage"),
+                criarMovimentacaoPage.getErrorMessageDataMovimentacaoRequired().getText());
+
+        assertEquals(getJsonDataProperty(movimentacaoJsonData, "dataPagamentoRequiredMessage"),
+                criarMovimentacaoPage.getErrorMessageDataPagamentoRequired().getText());
+
+        assertEquals(getJsonDataProperty(movimentacaoJsonData, "descricaoRequiredMessage"),
+                criarMovimentacaoPage.getErrorMessageDescricaoRequired().getText());
+
+        assertEquals(getJsonDataProperty(movimentacaoJsonData, "interessadoRequiredMessage"),
+                criarMovimentacaoPage.getErrorMessageInteressadoRequired().getText());
+
+        assertEquals(getJsonDataProperty(movimentacaoJsonData, "valorRequiredMessage"),
+                criarMovimentacaoPage.getErrorMessageValorRequired().getText());
+
+        assertEquals(getJsonDataProperty(movimentacaoJsonData, "valorMustBeNumberMessage"),
+                criarMovimentacaoPage.getErrorMessageValorMustBeNumber().getText());
+    }
+
 //    @Test
 //    public void createMovimetacaoWithOneEmptyFieldPerTry(){
 //
