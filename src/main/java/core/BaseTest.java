@@ -89,7 +89,7 @@ public class BaseTest {
         return baseFileName;
     }
 
-    private void loginForTests(){
+    protected void loginForTests(){
         getDriver().get(loginPage.url);
         JSONObject logInJsonData = null;
         logInJsonData = getJsonDataObject("LogInData", "valid");

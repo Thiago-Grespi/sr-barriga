@@ -27,7 +27,7 @@
                 <version>3.0.0-M3</version>
                 <configuration>
                     <includes>
-                        <include>CriarMovimentacaoSuite.java</include>
+                        <include>RunAllTests.java</include>
                     </includes>
 <!--                    <parallel>all</parallel>-->
 <!--                    <threadCount>3</threadCount>-->

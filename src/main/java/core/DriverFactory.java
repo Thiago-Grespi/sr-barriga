@@ -22,7 +22,7 @@ public class DriverFactory {
     };
 
     public static WebDriver getDriver(){
-            return threadDriver.get();
+        return threadDriver.get();
     }
 
     private static WebDriver initDriver(){

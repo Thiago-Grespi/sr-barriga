@@ -12,9 +12,12 @@ core\DriverFactory.class
 tests\LoginTest.class
 pages\AdicionarContaPage.class
 tests\CriarMovimentacaoTest.class
+runners\ListarResumoMensalSuite.class
 runners\AdicionarContaSuite.class
+tests\ListarResumoMensalTest.class
 runners\LoginSuite.class
 core\DriverFactory$2.class
+pages\ListarResumoMensalPage.class
 core\DriverFactory$1.class
 core\Properties.class
 pages\CriarMovimentacaoPage.class

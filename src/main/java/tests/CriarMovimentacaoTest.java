@@ -27,7 +27,7 @@ public class CriarMovimentacaoTest extends BaseTest{
     public void initialSetUp(){
         criarMovimentacaoPage = new CriarMovimentacaoPage();
         homePage = new HomePage();
-//        loginForTests();
+        loginForTests();
         getDriver().get(criarMovimentacaoPage.url);
         isPageReady();
     }

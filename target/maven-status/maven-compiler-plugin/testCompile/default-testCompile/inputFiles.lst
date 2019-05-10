@@ -2,7 +2,9 @@ C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\pages\Listar
 C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\tests\AdicionarContaTest.java
 C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\runners\AdicionarContaSuite.java
 C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\core\DriverFactory.java
+C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\pages\ListarResumoMensalPage.java
 C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\core\Properties.java
+C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\runners\ListarResumoMensalSuite.java
 C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\tests\LoginTest.java
 C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\pages\CriarMovimentacaoPage.java
 C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\pages\AdicionarContaPage.java
@@ -13,5 +15,6 @@ C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\tests\CriarM
 C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\pages\LoginPage.java
 C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\core\BaseRunner.java
 C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\runners\RunAllTests.java
+C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\tests\ListarResumoMensalTest.java
 C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\pages\HomePage.java
 C:\Users\thiago.goulart\Documents\projetos\sr-barriga\src\main\java\runners\LoginSuite.java

@@ -20,11 +20,12 @@ public class ListarResumoMensalTest extends BaseTest {
     public void initialSetUp(){
         listarResumoMensalPage = new ListarResumoMensalPage();
         loginPage = new LoginPage();
-        login();
+        login(); // usar o método loginForTests()
         getDriver().get(listarResumoMensalPage.url);
         isPageReady();
     }
 
+    // remover esse método pois não será mais utilizado
     private void login(){
         getDriver().get(loginPage.url);
         JSONObject logInJsonData = null;
@@ -39,12 +40,14 @@ public class ListarResumoMensalTest extends BaseTest {
         assertTrue(listarResumoMensalPage.getBuscarButton().isDisplayed());
     }
 
+    // isso não é um cenário de testes, é um pre requisito/validação do teste
     @Test
     public void checarMesAtualPreenchido(){
         JSONObject movimentacaoJsonData = getJsonDataObject("ListarResumoMensalData", "current");
         assertEquals(movimentacaoJsonData.get("mes"), listarResumoMensalPage.getMesMovimentacaoItems().getFirstSelectedOption().getText());
     }
 
+    // isso não é um cenário de testes, é um pre requisit/validaçãoo do teste
     @Test
     public void checarAnoAtualPreenchido(){
         JSONObject movimentacaoJsonData = getJsonDataObject("ListarResumoMensalData", "current");

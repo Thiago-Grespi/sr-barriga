@@ -107,7 +107,10 @@ public class ListarResumoMensalPage extends BasePage {
         clickBuscar();
     }
 
+
     public void removerMovimentacao(String descricaoMovimentacao) {
+        // aqui não teria que ter uma busca pelo item que se deseja remover? chamando o
+        // comportamento listarMovimentacaoMensal()
         clickRemove(descricaoMovimentacao);
     }
 

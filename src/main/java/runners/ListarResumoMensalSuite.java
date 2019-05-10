@@ -10,4 +10,5 @@ import tests.ListarResumoMensalTest;
         ListarResumoMensalTest.class
 })
 public class ListarResumoMensalSuite extends BaseRunner {
+
 }
