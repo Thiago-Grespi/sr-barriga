@@ -1,9 +1,4 @@
 {
-  "current": {
-    "mes": "Maio",
-    "ano": "2019"
-  },
-
   "list": {
     "mes": "Maio",
     "ano": "2019",
@@ -15,9 +10,9 @@
   },
 
   "remove": {
-    "mes": "Abril",
+    "mes": "Janeiro",
     "ano": "2019",
-    "descricaoMovimentacao": "Movimentação para ser removida",
+    "descricaoMovimentacao": "pagamento da fatura de janeiro",
     "successMessage": "Movimentação removida com sucesso!"
   }
 }

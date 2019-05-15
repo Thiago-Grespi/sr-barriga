@@ -16,6 +16,6 @@ public class Properties {
         FIREFOX
     }
 
-    public static String baseUrl = "http://seubarriga.wcaquino.me/";
+    public static String baseUrl = "https://srbarriga.herokuapp.com/";
 
 }

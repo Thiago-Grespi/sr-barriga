@@ -46,7 +46,6 @@ public class ListarResumoMensalPage extends BasePage {
     }
 
     public WebElement getMovimentacao(String movimentacaoDescricao) {
-        //return getMovimentacaoTableRows().get(0);
         for (WebElement movimentacaoRow : getMovimentacaoTableRows()) {
             if (movimentacaoRow.getText().substring(0, movimentacaoDescricao.length()).equals(movimentacaoDescricao)) {
                 return movimentacaoRow;
@@ -107,10 +106,8 @@ public class ListarResumoMensalPage extends BasePage {
         clickBuscar();
     }
 
-
     public void removerMovimentacao(String descricaoMovimentacao) {
-        // aqui não teria que ter uma busca pelo item que se deseja remover? chamando o
-        // comportamento listarMovimentacaoMensal()
+        //listarMovimentacaoMensal(mesMovimentacaoVisibleText, anoMovimentacaoVisibleText);
         clickRemove(descricaoMovimentacao);
     }
 
